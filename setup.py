@@ -7,7 +7,7 @@ ext_modules = [
         "example",
         sources=["module.cpp"],
         depends=["setup.py"],
-        # cxxflags=["-fsanitize=address", "-fsanitize=undefined"],
+        # extra_compile_args=["-fsanitize=address"],
         cxx_std=20,
     ),
 ]
