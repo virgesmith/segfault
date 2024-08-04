@@ -10,7 +10,7 @@ using namespace std::string_literals;
 double test_sqrt(double x)
 {
   if (x < 0.0)
-    throw py::value_error("x can't be negative"s);
+    throw py::value_error(("x can't be negative: "s + std::to_string(x)).c_str());
   return sqrt(x);
 }
 
@@ -21,6 +21,7 @@ PYBIND11_MODULE(example, m)
   py::register_exception_translator(
     [](std::exception_ptr p) {
       try {
+        py::print("rethrowing...");
         if (p) std::rethrow_exception(p);
       } catch (void* p) {
       }
