@@ -1,8 +1,11 @@
+import pytest
 import example
 
 
-try:
-    x = example.sqrt(-4)
-except Exception as e:
-    print(e)
+def test_segfault() -> None:
+    with pytest.raises(ValueError):
+        example.sqrt(-4)
+    # except Exception as e:
+    #     print(e)
+    # assert False
 
