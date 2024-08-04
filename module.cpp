@@ -2,12 +2,15 @@
 
 namespace py = pybind11;
 
+#include <string>
 #include <cmath>
+
+using namespace std::string_literals;
 
 double test_sqrt(double x)
 {
   if (x < 0.0)
-    throw py::value_error("x can't be negative");
+    throw py::value_error("x can't be negative"s);
   return sqrt(x);
 }
 
